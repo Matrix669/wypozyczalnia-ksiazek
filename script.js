@@ -115,9 +115,9 @@ function checkErrors() {
 	})
 
 	if (errorCount === 0) {
-		console.log('wysyłanie...')
+		sendForm()
 	}
-	console.log(errorCount)
+	// console.log(errorCount)
 }
 
 // backhand
@@ -181,6 +181,25 @@ function getDataBooks() {
 	})
 }
 
+function sendForm() {
+	const formData = new FormData(formStudent)
+
+	const data = Object.fromEntries(formData)
+
+	// const url = 'https://imiki.pl/projekt/mm1/users'
+	const url = 'https://imiki.pl/projekt/index.php'
+	fetch(url, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(data),
+	})
+		.then(res => res.json())
+		.then(data => console.log(data))
+		.catch(error => console.log(`Błąd: ${error}`))
+}
+
 btnAddStudent.addEventListener('click', handleForm)
 btnAddBook.addEventListener('click', handleSelect)
 btnClear.addEventListener('click', clearForm)
@@ -195,4 +214,5 @@ btnSubmit.addEventListener('click', e => {
 })
 btnShowStudents.addEventListener('click', handleShowStudents)
 btnShowBooks.addEventListener('click', handleShowBooks)
+formStudent.addEventListener('submit', sendForm)
 getDataBooks()

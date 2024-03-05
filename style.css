@@ -47,3 +47,14 @@ body {
 .books-container {
 	display: none;
 }
+
+
+.menu-btn {
+	transition: color .3s, background-color .3s;
+}
+
+.menu-btn:hover {
+	color: #000 !important;
+	background-color: #fff !important;
+	border: 1px solid #000;
+}
