@@ -1,0 +1,49 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: sans-serif;
+	font-size: 1.6rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+.form-box.error input {
+	border-color: #dc3545;
+	background-color: #dc35462b;
+}
+
+.form-box .error-info {
+	visibility: hidden;
+}
+
+.form-box.error .error-info {
+	visibility: visible;
+}
+
+.info-book {
+	display: flex;
+	padding: 1em;
+	background-color: #ddd;
+	display: none;
+}
+
+.info-book.active,
+.students-container.active,
+.books-container.active {
+	display: block;
+}
+
+.students-container,
+.books-container {
+	display: none;
+}
